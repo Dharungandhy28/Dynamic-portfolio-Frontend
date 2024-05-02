@@ -21,7 +21,9 @@ function Home() {
   const pdfRef = useRef();
   const getportfolioData = async () => {
     try {
-      const response = await axios.get("/api/portfolio/share/" + id);
+      const response = await axios.get(
+        process.env.REACT_APP_BASEURL + "/api/portfolio/share/" + id
+      );
 
       dispatch(SetportfolioData(response.data));
       dispatch(ReloadData(false));
