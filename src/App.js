@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Home from "./Pages/Home";
+import { useEffect, useRef, useState } from "react";
+import Loader from "./Components/Loader";
+import axios from "axios";
+import { ReloadData, SetportfolioData } from "./redux/rootSlice";
+import { useDispatch, useSelector } from "react-redux";
+import Admin from "./Pages/Admin";
+import Login from "./Pages/Admin/Login";
+import Signup from "./Pages/Admin/Signup";
 
+const PrivateRoute = ({ Component }) => {
+  const { isLogin } = useSelector((state) => state.root);
+  return isLogin ? <Component /> : <Navigate to="/admin-Login" />;
+};
 function App() {
+  const { loading } = useSelector((state) => state.root);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      {loading ? <Loader /> : null}
+      <Routes>
+        <Route path="/" element={<PrivateRoute Component={Home} />} />
+        <Route path="/share/:id" element={<Home />} />
+        <Route path="/admin" element={<PrivateRoute Component={Admin} />} />
+        <Route path="/admin-signup" element={<Signup />} />
+        <Route path="/admin-login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
