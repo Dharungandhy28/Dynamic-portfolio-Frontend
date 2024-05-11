@@ -54,8 +54,8 @@ function Login() {
           className="text-black"
         />
         <button
-          className=" text-primary p-2 font-bold rounded-lg"
-          style={{ backgroundColor: "#bdbdc2" }}
+          className=" bg-primary  text-white p-2 "
+          // style={{ backgroundColor: "#bdbdc2" }}
           onClick={handleLogin}
         >
           Login
