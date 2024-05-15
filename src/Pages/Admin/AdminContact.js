@@ -57,25 +57,88 @@ function AdminContact() {
         layout="vertical"
         initialValues={portfolioData.contact}
       >
-        <Form.Item name="name" label="Name">
+        <Form.Item
+          name="name"
+          label="Name"
+          rules={[
+            {
+              required: true,
+              message: "Please Enter Name",
+            },
+          ]}
+        >
           <input placeholder="Name" />
         </Form.Item>
-        <Form.Item name="gender" label="Gender">
+        <Form.Item
+          name="gender"
+          label="Gender"
+          rules={[
+            {
+              required: true,
+              message: "Please Enter Gender",
+            },
+          ]}
+        >
           <input placeholder="Gender" />
         </Form.Item>
-        <Form.Item name="email" label="Email">
+        <Form.Item
+          name="email"
+          label="Email"
+          rules={[
+            {
+              required: true,
+              message: "Please Enter Email",
+            },
+          ]}
+        >
           <input placeholder="Email" />
         </Form.Item>
-        <Form.Item name="mobile" label="Mobile">
+        <Form.Item
+          name="mobile"
+          label="Mobile"
+          rules={[
+            {
+              required: true,
+              message: "Please Enter Mobile Number",
+            },
+          ]}
+        >
           <input placeholder="Mobile" />
         </Form.Item>
-        <Form.Item name="country" label="Country">
+        <Form.Item
+          name="country"
+          label="Country"
+          rules={[
+            {
+              required: true,
+              message: "Please Add Country",
+            },
+          ]}
+        >
           <input placeholder="Country" />
         </Form.Item>
-        <Form.Item name="github" label="Github">
+        <Form.Item
+          name="github"
+          label="Github"
+          rules={[
+            {
+              required: true,
+              message: "Please Add Github ",
+            },
+          ]}
+        >
           <input placeholder="Github" />
         </Form.Item>
-        <Form.Item name="linkedin" label="Linked-in">
+        <Form.Item
+          name="linkedin"
+          label="Linked-in"
+          rules={[
+            {
+              required: true,
+              message: "Please Add LinkedIn",
+            },
+          ]}
+        >
           <input placeholder="Linked-in" />
         </Form.Item>
         <div className="flex justify-end w-full" label="WelcomeText">

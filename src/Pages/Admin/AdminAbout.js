@@ -10,6 +10,7 @@ function AdminAbout() {
   const headers = { Authorization: `Bearer ${Authtoken}` };
   const onFinish = async (values) => {
     console.log(portfolioData.about._id);
+
     try {
       const tempskills = values.skills.split(",");
       values.skills = tempskills;
@@ -44,16 +45,52 @@ function AdminAbout() {
           skills: portfolioData.about.skills.join(" , "),
         }}
       >
-        <Form.Item name="imgurl" label="Google-drive-url">
+        <Form.Item
+          name="imgurl"
+          label="Google-drive-url"
+          rules={[
+            {
+              required: true,
+              message: "Please Update your image!",
+            },
+          ]}
+        >
           <input placeholder="imgurl" />
         </Form.Item>
-        <Form.Item name="description1" label="Description1">
+        <Form.Item
+          name="description1"
+          label="Description1"
+          rules={[
+            {
+              required: true,
+              message: "Please Add description1!",
+            },
+          ]}
+        >
           <textarea placeholder="description1" />
         </Form.Item>
-        <Form.Item name="description2" label="Description2">
+        <Form.Item
+          name="description2"
+          label="Description2"
+          rules={[
+            {
+              required: true,
+              message: "Please Add description2!",
+            },
+          ]}
+        >
           <textarea placeholder="description2" />
         </Form.Item>
-        <Form.Item name="skills" label="Skills">
+        <Form.Item
+          name="skills"
+          label="Skills"
+          rules={[
+            {
+              required: true,
+              message: "Please Add your skills!",
+            },
+          ]}
+        >
           <textarea placeholder="skills" />
         </Form.Item>
 

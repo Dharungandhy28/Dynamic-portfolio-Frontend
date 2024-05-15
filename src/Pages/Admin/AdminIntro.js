@@ -39,22 +39,76 @@ function AdminIntro() {
         layout="vertical"
         initialValues={portfolioData.intro}
       >
-        <Form.Item name="welcomeText" label="WelcomeText">
+        <Form.Item
+          name="welcomeText"
+          label="WelcomeText"
+          rules={[
+            {
+              required: true,
+              message: "Please Enter Welcome Text",
+            },
+          ]}
+        >
           <input placeholder="Intro" />
         </Form.Item>
-        <Form.Item name="firstName" label="FirstName">
+        <Form.Item
+          name="firstName"
+          label="FirstName"
+          rules={[
+            {
+              required: true,
+              message: "Please Enter your FirstName",
+            },
+          ]}
+        >
           <input placeholder="FirstName" />
         </Form.Item>
-        <Form.Item name="middleName" label="MiddleName">
+        <Form.Item
+          name="middleName"
+          label="MiddleName"
+          rules={[
+            {
+              required: true,
+              message: "Please Enter your MiddleName",
+            },
+          ]}
+        >
           <input placeholder="MiddleName" />
         </Form.Item>
-        <Form.Item name="lastName" label="LastName">
+        <Form.Item
+          name="lastName"
+          label="LastName"
+          rules={[
+            {
+              required: true,
+              message: "Please Enter your last name",
+            },
+          ]}
+        >
           <input placeholder="LastName" />
         </Form.Item>
-        <Form.Item name="caption" label="caption">
+        <Form.Item
+          name="caption"
+          label="caption"
+          rules={[
+            {
+              required: true,
+              message: "Please Add caption",
+            },
+          ]}
+        >
           <input placeholder="caption" />
         </Form.Item>
-        <Form.Item name="description" label="description">
+        <Form.Item
+          name="description"
+          label="description"
+          rules={[
+            {
+              required: true,
+              message: "Please Add description",
+            },
+          ]}
+        >
           <textarea placeholder="description" />
         </Form.Item>
         <div className="flex justify-end w-full" label="WelcomeText">
