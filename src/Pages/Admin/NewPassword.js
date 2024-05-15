@@ -36,13 +36,40 @@ function NewPassword() {
   return (
     <div>
       <Form onFinish={onFinish} layout="vertical">
-        <Form.Item name="currentpassword" label="Current Password">
+        <Form.Item
+          name="currentpassword"
+          label="Current Password"
+          rules={[
+            {
+              required: true,
+              message: "Enter Current Password",
+            },
+          ]}
+        >
           <input placeholder="current password" type="password" />
         </Form.Item>
-        <Form.Item name="newpassword" label="New Password">
+        <Form.Item
+          name="newpassword"
+          label="New Password"
+          rules={[
+            {
+              required: true,
+              message: "Enter New Password",
+            },
+          ]}
+        >
           <input placeholder="New password" type="password" />
         </Form.Item>
-        <Form.Item name="confirmpassword" label="Confirm Password">
+        <Form.Item
+          name="confirmpassword"
+          label="Confirm Password"
+          rules={[
+            {
+              required: true,
+              message: "Enter Confirm Password",
+            },
+          ]}
+        >
           <input placeholder="Confirm Password" type="password" />
         </Form.Item>
 

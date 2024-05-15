@@ -160,19 +160,64 @@ function AdminProjects() {
             }
             onFinish={onFinish}
           >
-            <Form.Item name="title" label="Title">
+            <Form.Item
+              name="title"
+              label="Title"
+              rules={[
+                {
+                  required: true,
+                  message: "Please Enter Title",
+                },
+              ]}
+            >
               <input placeholder="Title" />
             </Form.Item>
-            <Form.Item name="image" label="Image Url">
+            <Form.Item
+              name="image"
+              label="Image Url"
+              rules={[
+                {
+                  required: true,
+                  message: "Please Add Image",
+                },
+              ]}
+            >
               <input placeholder="Image" />
             </Form.Item>
-            <Form.Item name="description" label="Description">
+            <Form.Item
+              name="description"
+              label="Description"
+              rules={[
+                {
+                  required: true,
+                  message: "Please Add description",
+                },
+              ]}
+            >
               <textarea placeholder="Description" />
             </Form.Item>
-            <Form.Item name="link" label="Link">
+            <Form.Item
+              name="link"
+              label="Link"
+              rules={[
+                {
+                  required: true,
+                  message: "Please Add Link",
+                },
+              ]}
+            >
               <input placeholder="Link" />
             </Form.Item>
-            <Form.Item name="technologies" label="Technologies">
+            <Form.Item
+              name="technologies"
+              label="Technologies"
+              rules={[
+                {
+                  required: true,
+                  message: "Please Enter Technologies",
+                },
+              ]}
+            >
               <textarea placeholder="Technologies" />
             </Form.Item>
             <div className="flex justify-end">

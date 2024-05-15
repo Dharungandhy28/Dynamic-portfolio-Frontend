@@ -156,16 +156,52 @@ function AdminExperience() {
             initialValues={selectedItemEdit}
             onFinish={onFinish}
           >
-            <Form.Item name="period" label="Period">
+            <Form.Item
+              name="period"
+              label="Period"
+              rules={[
+                {
+                  required: true,
+                  message: "Please Add Period",
+                },
+              ]}
+            >
               <input placeholder="Period" />
             </Form.Item>
-            <Form.Item name="company" label="Company">
+            <Form.Item
+              name="company"
+              label="Company"
+              rules={[
+                {
+                  required: true,
+                  message: "Please Enter Company Name",
+                },
+              ]}
+            >
               <input placeholder="Company" />
             </Form.Item>
-            <Form.Item name="title" label="Title">
+            <Form.Item
+              name="title"
+              label="Title"
+              rules={[
+                {
+                  required: true,
+                  message: "Please Enter Title",
+                },
+              ]}
+            >
               <input placeholder="Title" />
             </Form.Item>
-            <Form.Item name="description" label="Description">
+            <Form.Item
+              name="description"
+              label="Description"
+              rules={[
+                {
+                  required: true,
+                  message: "Please Add description",
+                },
+              ]}
+            >
               <textarea placeholder="Description" />
             </Form.Item>
             <div className="flex justify-end">

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { ReloadData, Login as login } from "../../redux/rootSlice";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Form, message } from "antd";
 function Login() {
   const dispatch = useDispatch();
   const [user, setUser] = React.useState({
@@ -11,26 +12,27 @@ function Login() {
   });
   const navigate = useNavigate();
 
-  const apilogin = async () => {
+  const onFinish = async (values) => {
     try {
       const response = await axios.post(
         process.env.REACT_APP_BASEURL + "/api/auth/signin",
-        {
-          email: user.username,
-          password: user.password,
-        }
+        values
       );
-
-      dispatch(login({ ...response.data, callback: () => navigate("/admin") }));
-      dispatch(ReloadData(false));
+      if (response.data.message === "Login successfully") {
+        message.success(response.data.message, 3, () => {
+          dispatch(
+            login({ ...response.data, callback: () => navigate("/admin") })
+          );
+          dispatch(ReloadData(false));
+        });
+      } else {
+        message.error("Login failed please try again");
+      }
     } catch (error) {
-      console.log(error);
+      message.error("Login failed please try again");
     }
   };
 
-  const handleLogin = () => {
-    apilogin();
-  };
   return (
     <div className="flex justify-center items-center h-screen bg-primary text-secondary">
       <div
@@ -38,34 +40,56 @@ function Login() {
         style={{ backgroundColor: "#383847" }}
       >
         <h1 className="text-2xl">Admin Login</h1>
+
         <hr />
-        <input
-          type="email"
-          value={user.username}
-          onChange={(e) => setUser({ ...user, username: e.target.value })}
-          placeholder="Username"
-          className="text-black"
-        />
-        <input
-          type="password"
-          value={user.password}
-          onChange={(e) => setUser({ ...user, password: e.target.value })}
-          placeholder="Password"
-          className="text-black"
-        />
-        <button
-          className=" bg-primary  text-white p-2 "
-          // style={{ backgroundColor: "#bdbdc2" }}
-          onClick={handleLogin}
-        >
-          Login
-        </button>
-        <p className="text-secondary text-sm">
-          Did'nt have account&nbsp;
-          <Link to="/admin-signup" className="text-blue-300">
-            click here to Signup
-          </Link>
-        </p>
+        <Form layout="vertical" onFinish={onFinish}>
+          <Form.Item
+            name="email"
+            label={<span className="text-white">Email</span>}
+            rules={[
+              {
+                required: true,
+                message: "Please Enter Email",
+              },
+            ]}
+          >
+            <input
+              type="email"
+              placeholder="Email"
+              // className="text-black"
+            />
+          </Form.Item>
+          <Form.Item
+            name="password"
+            label={<span className="text-white">Password</span>}
+            rules={[
+              {
+                required: true,
+                message: "Please Enter Password",
+              },
+            ]}
+          >
+            <input
+              type="password"
+              // value={user.password}
+              // onChange={(e) => setUser({ ...user, password: e.target.value })}
+              placeholder="Password"
+              // className="text-black"
+            />
+          </Form.Item>
+          <button
+            className=" bg-primary  text-white p-2 mb-2 "
+            // style={{ backgroundColor: "#bdbdc2" }}
+          >
+            Login
+          </button>
+          <p className="text-secondary text-sm">
+            Did'nt have account&nbsp;
+            <Link to="/admin-signup" className="text-blue-300">
+              click here to Signup
+            </Link>
+          </p>
+        </Form>
       </div>
     </div>
   );
