@@ -15,12 +15,11 @@ function Signup() {
   const navigate = useNavigate();
   const onFinish = async (values) => {
     try {
-      console.log(values);
       const response = await axios.post(
         process.env.REACT_APP_BASEURL + "/api/auth/signup",
         values
       );
-      console.log(response);
+
       if (response.data.success) {
         message.success(response.data.message, 3, () =>
           navigate("/admin-login")
@@ -52,11 +51,7 @@ function Signup() {
               },
             ]}
           >
-            <input
-              type="email"
-              placeholder="Email"
-              // className="text-black"
-            />
+            <input type="email" placeholder="Email" />
           </Form.Item>
           <Form.Item
             name="password"
@@ -68,13 +63,7 @@ function Signup() {
               },
             ]}
           >
-            <input
-              type="password"
-              // value={user.password}
-              // onChange={(e) => setUser({ ...user, password: e.target.value })}
-              placeholder="Password"
-              // className="text-black"
-            />
+            <input type="password" placeholder="Password" />
           </Form.Item>
           <Form.Item
             name="confirmpassword"
@@ -96,15 +85,7 @@ function Signup() {
               }),
             ]}
           >
-            <input
-              type="password"
-              // value={user.confirmPassword}
-              // onChange={(e) =>
-              //   setUser({ ...user, confirmPassword: e.target.value })
-              // }
-              placeholder="Confirm Password"
-              // className="text-black"
-            />
+            <input type="password" placeholder="Confirm Password" />
           </Form.Item>
           <button className="bg-primary text-white p-2 mb-2">Sign UP</button>
           <p className="text-secondary text-sm">

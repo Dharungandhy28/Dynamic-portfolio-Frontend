@@ -16,7 +16,6 @@ function AdminContact() {
   const headers = { Authorization: `Bearer ${Authtoken}` };
 
   const onFinish = async (values) => {
-    console.log(portfolioData.contact._id);
     try {
       dispatch(ShowLoading());
       const response = await axios.post(
@@ -152,7 +151,6 @@ function AdminContact() {
             onClick={() => {
               window.localStorage.removeItem("token");
               dispatch(Logout());
-              // navigate("/admin-Login");
             }}
           >
             Logout

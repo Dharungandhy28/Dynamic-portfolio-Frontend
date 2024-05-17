@@ -30,14 +30,6 @@ function Intro({ pdfRef }) {
       const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
       const imgX = (pdfWidth - imgWidth * ratio) / 2;
       const imgY = 30;
-      // pdf.addImage(
-      //   imgData,
-      //   "PNG",
-      //   imgX,
-      //   imgY,
-      //   imgWidth * ratio,
-      //   imgHeight * ratio
-      // );
 
       pdf.addImage(
         imgData,
@@ -100,13 +92,6 @@ function Intro({ pdfRef }) {
       >
         Share
       </Paragraph>
-
-      {/* <button
-        className="border-2 border-tertiary text-white px-10 py-3"
-        onClick={downloadPDF}
-      >
-        Share Portfolio
-      </button> */}
     </div>
   );
 }

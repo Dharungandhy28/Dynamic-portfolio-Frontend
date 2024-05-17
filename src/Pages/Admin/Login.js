@@ -53,11 +53,7 @@ function Login() {
               },
             ]}
           >
-            <input
-              type="email"
-              placeholder="Email"
-              // className="text-black"
-            />
+            <input type="email" placeholder="Email" />
           </Form.Item>
           <Form.Item
             name="password"
@@ -69,20 +65,9 @@ function Login() {
               },
             ]}
           >
-            <input
-              type="password"
-              // value={user.password}
-              // onChange={(e) => setUser({ ...user, password: e.target.value })}
-              placeholder="Password"
-              // className="text-black"
-            />
+            <input type="password" placeholder="Password" />
           </Form.Item>
-          <button
-            className=" bg-primary  text-white p-2 mb-2 "
-            // style={{ backgroundColor: "#bdbdc2" }}
-          >
-            Login
-          </button>
+          <button className=" bg-primary  text-white p-2 mb-2 ">Login</button>
           <p className="text-secondary text-sm">
             Did'nt have account&nbsp;
             <Link to="/admin-signup" className="text-blue-300">

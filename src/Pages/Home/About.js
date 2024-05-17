@@ -22,12 +22,6 @@ function About() {
       <div className="flex w-full items-center sm:flex-col">
         <div>
           <img src={formatterimgurl} alt="" />
-
-          {/* <img
-            src={
-              "https://drive.google.com/file/d/1kLqiRerGR6Cle2mkOgoDw06H5d7GdQrX/view"
-            }
-          /> */}
         </div>
         <div className="flex flex-col gap-5 w-1/2 sm:w-full">
           <p className="text-white">{description1}</p>
