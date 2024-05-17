@@ -27,9 +27,7 @@ function Home() {
 
       dispatch(SetportfolioData(response.data));
       dispatch(ReloadData(false));
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {

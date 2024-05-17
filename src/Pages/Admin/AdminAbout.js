@@ -9,8 +9,6 @@ function AdminAbout() {
   const { portfolioData, Authtoken } = useSelector((state) => state.root);
   const headers = { Authorization: `Bearer ${Authtoken}` };
   const onFinish = async (values) => {
-    console.log(portfolioData.about._id);
-
     try {
       const tempskills = values.skills.split(",");
       values.skills = tempskills;

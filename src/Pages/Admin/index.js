@@ -69,16 +69,3 @@ function Admin() {
 }
 
 export default Admin;
-
-{
-  /* <div className="mt-5 p-5">
-          <Tabs defaultActiveKey="1">
-            <TabPane tab="Intro" key="1">
-              <AdminIntro />
-            </TabPane>
-            <TabPane tab="About" key="2">
-              <AdminAbout />
-            </TabPane>
-          </Tabs>
-        </div> */
-}

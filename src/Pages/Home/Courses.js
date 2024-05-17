@@ -45,12 +45,7 @@ function Courses() {
           <h1 className="text-tertiary text-xl">
             {courses[selectedItemIndex].description}
           </h1>
-          {/* <p className="text-white">
-            As a Front end developer I have learned lot of things and worked
-            with highely talented people, as a web developer I learn to manage
-            the code and maintain the cross-functionality with the good tech of
-            web 2
-          </p> */}
+
           <h1 className="text-white text-xl">
             {courses[selectedItemIndex].link}
           </h1>
